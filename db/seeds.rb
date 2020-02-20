@@ -7,7 +7,7 @@ User.destroy_all
 user = User.create!(email: "test@test.com", password: "123456", first_name: "hello", last_name: "world")
 
 category_one = Category.create!(name: "General", user: user)
-category_two = Category.create!(name: "General", user: user)
+category_two = Category.create!(name: "Work", user: user)
 
 task_one = Task.create!(title: "Go shopping", category: category_one)
 task_two = Task.create!(title: "Renew car insurance", category: category_one)

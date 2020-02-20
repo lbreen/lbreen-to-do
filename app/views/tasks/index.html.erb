@@ -1,0 +1,9 @@
+<div class="task-board">
+  <% @tasks.each do |task| %>
+    <div class="task-card">
+      <h2><%= task.title %></h2>
+      <p class="task-description">Description: <%= task.description %></p>
+      <p>Status: <%= task.status %></p>
+    </div>
+  <% end %>
+</div>
