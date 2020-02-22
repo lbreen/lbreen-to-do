@@ -1,0 +1,16 @@
+.form {
+  background-color: white;
+  padding: 20px;
+  border-radius: 3px;
+  box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.4);
+  color: black;
+  h2 {
+    text-align: center;
+    font-size: 22px;
+    font-weight: bold;
+  }
+  .btn {
+    width: 100%;
+    line-height: 30px;
+  }
+}
