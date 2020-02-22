@@ -1,15 +1,19 @@
 class TaskPolicy < ApplicationPolicy
   class Scope < Scope
     def resolve
-      scope.where(status: "incomplete")
+      scope.where(status: "incomplete", user: user)
     end
   end
 
   def create?
-    true
+    return true if user
   end
 
   def update?
-    binding.pry
+    record.user == user
+  end
+
+  def complete?
+    record.user == user
   end
 end

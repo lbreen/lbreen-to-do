@@ -1,7 +1,7 @@
 <div class="task-container">
   <% @tasks_with_categories.each do |category, tasks| %>
     <div class="task-list">
-      <h2 class="task-list-header"><%= category.name %></h2>
+      <h2 class="task-list-header"><%= category %></h2>
       <div class="task-list-contents">
         <% tasks.each do |task| %>
           <div class="task-card" data-task-id=<%= task.id %>>
