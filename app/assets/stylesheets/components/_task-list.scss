@@ -1,0 +1,74 @@
+.task-container {
+  padding: 60px;
+}
+.task-list {
+  display: flex;
+  flex-direction: column;
+}
+.task-list-header{
+  padding: 8px;
+  grid-column-start: first;
+  grid-column-end: end;
+}
+.task-list-contents {
+  padding: 0 16px;
+  display: grid;
+}
+.task-list-card {
+  overflow: hidden;
+  height: 120px;
+  background: white;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  display: flex;
+  align-items: center;
+  margin: 8px;
+}
+.task-list-card i {
+  /*height: 100%;*/
+  width: 120px;
+  /*object-fit: cover;*/
+  font-size: 32px;
+  padding-left: 46px;
+}
+.task-list-card h2 {
+  font-size: 16px;
+  font-weight: bold;
+  margin: 0;
+}
+
+.task-list-card p {
+  font-size: 12px;
+  line-height: 1.4;
+  opacity: .7;
+  margin-bottom: 0;
+  margin-top: 8px;
+}
+.task-list-card:hover {
+  box-shadow: 0 4px 14px 0 rgba(37,32,31,.25);
+  z-index: 3;
+}
+.task-list-card-info {
+  flex-grow: 1;
+  padding: 16px;
+}
+// Small devices (landscape phones, 576px and up)
+@media (max-width: 767px) {
+  .task-container {
+    padding: 60px 0;
+  }
+  .task-list-card-img {
+    display: none;
+  }
+  .task-list-contents {
+    grid-template-columns: 1fr;
+  }
+}
+
+// Medium devices (tablets, 768px and up)
+@media (min-width: 768px) {
+  .task-list-contents {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+

@@ -1,9 +1,21 @@
-<div class="task-board">
-  <% @tasks.each do |task| %>
-    <div class="task-card">
-      <h2><%= task.title %></h2>
-      <p class="task-description">Description: <%= task.description %></p>
-      <p>Status: <%= task.status %></p>
+<div class="task-container">
+  <% @tasks_with_categories.each do |category, tasks| %>
+    <div class="task-list">
+      <h2 class="task-list-header"><%= category.name %></h2>
+      <div class="task-list-contents">
+        <% tasks.each do |task| %>
+          <div class="task-list-card">
+            <i class="fas fa-tasks task-list-card-img"></i>
+            <div class="task-list-card-info">
+              <h3><%= task.title %></h3>
+              <p>Description: <%= task.description %></p>
+            </div>
+            <i class="far fa-check-square task-list-card-status"></i>
+          </div>
+        <% end %>
+      </div>
     </div>
   <% end %>
 </div>
+
+
