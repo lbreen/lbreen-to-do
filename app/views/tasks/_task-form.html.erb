@@ -3,7 +3,7 @@
 
   <%= f.input :title %>
   <%= f.input :description %>
-  <%= f.association :category %>
+  <%= f.association :category, selected: "General" %>
 
   <%= f.button :submit, class: "btn btn-primary wide-btn" %>
 <% end %>
