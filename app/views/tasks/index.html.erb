@@ -4,7 +4,7 @@
       <h2 class="task-list-header"><%= category.name %></h2>
       <div class="task-list-contents">
         <% tasks.each do |task| %>
-          <div class="task-card">
+          <div class="task-card" data-task-id=<%= task.id %>>
             <i class="fas fa-tasks task-card-img"></i>
             <div class="task-card-info">
               <div class="task-card-header">
@@ -13,10 +13,13 @@
                   <i class="far fa-edit"></i>
                 <% end %>
               </div>
-              <p>Description: <%= task.description %></p>
-              <p><%= task.status %></p>
+              <% if task.description.nil? %>
+                <p>No description</p>
+              <% else %>
+                <p><%= task.description %></p>
+              <% end %>
             </div>
-            <%= link_to complete_task_path(task), method: :post, class: "task-card-status" do %>
+            <%= link_to complete_task_path(task), method: :post, remote: true, class: "task-card-status" do %>
               <i class="far fa-check-square task-card-status task-incomplete"></i>
             <% end %>
           </div>

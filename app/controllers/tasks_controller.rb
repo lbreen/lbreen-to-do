@@ -7,7 +7,11 @@ class TasksController < ApplicationController
     @tasks_with_categories = {}
 
     user_categories.each do |cat|
-      @tasks_with_categories[cat] = cat.tasks.where(status: "incomplete")
+      incomplete_tasks = cat.tasks.where(status: "incomplete")
+
+      unless incomplete_tasks.empty?
+        @tasks_with_categories[cat] = cat.tasks.where(status: "incomplete")
+      end
     end
   end
 
@@ -37,9 +41,15 @@ class TasksController < ApplicationController
 
   def complete
     if @task.complete!
-      redirect_to tasks_path
+      respond_to do |format|
+        format.html { redirect_to tasks_path }
+        format.js
+      end
     else
-      redirect_to tasks_path
+      respond_to do |format|
+        format.html { redirect_to tasks_path }
+        format.js
+      end
       flash[:alert] = "Unable to mark as complete!"
     end
   end

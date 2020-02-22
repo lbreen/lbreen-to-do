@@ -6,7 +6,7 @@
   flex-direction: column;
 }
 .task-list-header{
-  padding: 8px;
+  padding: 8px 24px;
   grid-column-start: first;
   grid-column-end: end;
 }
@@ -21,7 +21,7 @@
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   display: flex;
   align-items: center;
-  margin: 8px;
+/*  margin: 8px;*/
 }
 .task-card > i {
   /*height: 100%;*/
@@ -86,7 +86,7 @@
 // Medium devices (tablets, 768px and up)
 @media (min-width: 768px) {
   .task-list-contents {
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr;
   }
 }
 

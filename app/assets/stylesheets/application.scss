@@ -19,3 +19,12 @@ a {
     opacity: 0.7;
   }
 }
+
+.slide-up {
+  height: 0;
+  overflow-y: hidden;
+  -webkit-transition: height 0.5s ease-in-out;
+  -moz-transition: height 0.5s ease-in-out;
+  -o-transition: height 0.5s ease-in-out;
+  transition: height 0.5s ease-in-out;
+}
