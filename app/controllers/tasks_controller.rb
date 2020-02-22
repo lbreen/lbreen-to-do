@@ -2,17 +2,23 @@ class TasksController < ApplicationController
   before_action :find_task, only: [:edit, :update, :complete]
 
   def index
-    user_categories = current_user.categories
+    tasks = policy_scope(Task)
+    binding.pry
+    # user_categories = current_user.categories
 
-    @tasks_with_categories = {}
+    tasks_with_categories = {}
 
-    user_categories.each do |cat|
-      incomplete_tasks = cat.tasks.where(status: "incomplete")
-
-      unless incomplete_tasks.empty?
-        @tasks_with_categories[cat] = cat.tasks.where(status: "incomplete")
-      end
+    tasks.each do |task|
+      category = task.category
     end
+
+    # user_categories.each do |cat|
+    #   incomplete_tasks = cat.tasks.where(status: "incomplete")
+
+    #   unless incomplete_tasks.empty?
+    #     @tasks_with_categories[cat] = cat.tasks.where(status: "incomplete")
+    #   end
+    # end
   end
 
   def new
@@ -21,6 +27,7 @@ class TasksController < ApplicationController
 
   def create
     @task = Task.new(task_params)
+    authorize @task
     if @task.save
       redirect_to tasks_path
     else
@@ -32,6 +39,7 @@ class TasksController < ApplicationController
   end
 
   def update
+    authorize @task
     if @task.update(task_params)
       redirect_to tasks_path
     else
