@@ -4,13 +4,21 @@
       <h2 class="task-list-header"><%= category.name %></h2>
       <div class="task-list-contents">
         <% tasks.each do |task| %>
-          <div class="task-list-card">
-            <i class="fas fa-tasks task-list-card-img"></i>
-            <div class="task-list-card-info">
-              <h3><%= task.title %></h3>
+          <div class="task-card">
+            <i class="fas fa-tasks task-card-img"></i>
+            <div class="task-card-info">
+              <div class="task-card-header">
+                <h3><%= task.title %></h3>
+                <%= link_to edit_task_path(task) do %>
+                  <i class="far fa-edit"></i>
+                <% end %>
+              </div>
               <p>Description: <%= task.description %></p>
+              <p><%= task.status %></p>
             </div>
-            <i class="far fa-check-square task-list-card-status"></i>
+            <%= link_to "#", class: "task-card-status" do %>
+              <i class="far fa-check-square task-card-status task-incomplete"></i>
+            <% end %>
           </div>
         <% end %>
       </div>
